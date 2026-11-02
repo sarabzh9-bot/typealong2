@@ -1,0 +1,274 @@
+:root {
+  --bg: #0f1115;
+  --card: #181b22;
+  --line: #2a2f3a;
+  --text: #e8eaf0;
+  --muted: #8b93a7;
+  --accent: #6ea8fe;
+  --ok: #4ade80;
+  --bad: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.top p {
+  margin: 4px 0 20px;
+  color: var(--muted);
+}
+
+.load {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+input[type='text'],
+.typebox {
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+input[type='text']:focus,
+.typebox:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+
+.url {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.lang {
+  width: 72px;
+  text-align: center;
+}
+
+button {
+  background: var(--accent);
+  color: #0b1220;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.buttons button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--line);
+  font-weight: 500;
+  padding: 10px 14px;
+}
+
+.options {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.options label.file input {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.error {
+  background: #3a1a1a;
+  border: 1px solid #6b2b2b;
+  color: #fecaca;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+.stage {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stage[hidden] {
+  display: none;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.player,
+.player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.metrics b {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.metrics span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.bar {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+.ctx {
+  margin: 4px 0;
+  color: var(--muted);
+  opacity: 0.55;
+  font-size: 0.95rem;
+  min-height: 1.5em;
+}
+
+.target {
+  margin: 8px 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.target .todo {
+  color: var(--muted);
+}
+
+.target .ok {
+  color: var(--ok);
+}
+
+.target .bad {
+  color: var(--bad);
+  background: rgba(248, 113, 113, 0.18);
+  border-radius: 2px;
+}
+
+.target .caret {
+  border-bottom: 2px solid var(--accent);
+}
+
+.typebox {
+  width: 100%;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.1rem;
+}
+
+.typebox.over {
+  outline: 2px solid var(--bad);
+}
+
+.hint {
+  color: var(--bad);
+  font-size: 0.85rem;
+  margin: 6px 0 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.done h2 {
+  margin: 0 0 12px;
+}
+
+.history {
+  margin-top: 28px;
+  color: var(--muted);
+}
+
+.history h2 {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.history ul {
+  padding-left: 18px;
+}
+
+footer {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 560px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .target {
+    font-size: 1.2rem;
+  }
+}
